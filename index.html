@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="foto/Icons/20240830_131824.png">
+    <title>Agdy's Ways | Find Out Your Better Experiences!</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!--LOGIN FORM-->
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <span class="close" id="closeBtn">&times;</span>
+                <h2>Log In</h2>
+                <form action="">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="yourmail@example.com" required>
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Your Password" required>
+                    <button type="submit" class="log-in">Log In</button>
+                </form>
+                <p><a href="">Forgot Your Password?</a></p>
+            </div>
+        </div>
+
+
+        <nav class="sidebar">
+
+            <!-- HEADER SIDEBAR -->
+            <header class="sidebar-header">
+
+                <!-- TOMBOL BURGER -->
+                <button class="burger" id="burgerBtn">
+                    <svg class="icon-burger" xmlns="http://www.w3.org/2000/svg" 
+                        width="100" height="100" viewBox="0 0 50 50">
+                        <path fill="currentColor" d="M 3 8 A 2.0002 2.0002 0 1 0 3 12 L 47 12 A 2.0002 2.0002 0 1 0 47 8 L 3 8 z 
+                                                    M 3 23 A 2.0002 2.0002 0 1 0 3 27 L 47 27 A 2.0002 2.0002 0 1 0 47 23 L 3 23 z 
+                                                    M 3 38 A 2.0002 2.0002 0 1 0 3 42 L 47 42 A 2.0002 2.0002 0 1 0 47 38 L 3 38 z"/>
+                    </svg>
+                </button>
+
+                <!-- IKON QUICK ACCESS -->
+
+                <ul class="menu-icons">
+
+                    <li class="icon-item" data-target="destinasi">
+                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M32 6c-7.18 0-13 5.82-13 13 0 9.75 10.5 18.96 12.1 20.43a1.5 1.5 0 0 0 2.8 0C34.5 37.96 45 28.75 45 19c0-7.18-5.82-13-13-13z"/>
+                            <circle cx="32" cy="19" r="6" />
+                            <path d="M42 14l6-4-2 6-8 4-6 6" />
+                        </svg>
+                    </li>
+                    <li class="icon-item" data-target="paket">
+                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="12" y="20" width="40" height="28" rx="4" />
+                            <rect x="24" y="12" width="16" height="10" rx="2" />
+                            <line x1="20" y1="30" x2="44" y2="30" />
+                            <line x1="20" y1="36" x2="44" y2="36" />
+                        </svg>
+
+                    </li>
+                    <li class="icon-item" data-target="booking">
+                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="8" y="12" width="48" height="44" rx="6" />
+                            <line x1="8" y1="24" x2="56" y2="24" />
+                            <line x1="20" y1="8" x2="20" y2="18" />
+                            <line x1="44" y1="8" x2="44" y2="18" />
+                            <path d="M22 38l8 8 16-20" />
+                        </svg>
+                    </li>
+                    <li class="icon-item" data-target="booking">
+                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 32l18-18 30 8-18 18L5 32z" />
+                            <circle cx="16" cy="16" r="3" />
+                            <path d="M38 26l8 8" />
+                            <circle cx="46" cy="34" r="1.5" />
+                            <circle cx="42" cy="30" r="1.5" />
+                        </svg>
+
+                    </li>
+                    <li class="icon-item" data-target="booking">
+                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="10" y="8" width="34" height="48" rx="3" />
+                            <line x1="10" y1="20" x2="44" y2="20" />
+                            <line x1="10" y1="28" x2="44" y2="28" />
+                            <path d="M48 40l6 6" />
+                            <path d="M50 34l4-4 4 4-4 4" />
+                        </svg>
+
+                    </li>
+                    <li class="icon-item" data-target="booking">
+                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="6" y="10" width="52" height="40" rx="4" />
+                            <circle cx="16" cy="20" r="3" />
+                            <path d="M10 46l14-18 10 12 12-10 0 16" />
+                            <polyline points="20,34 28,26 38,36 50,26" fill="none" />
+                        </svg>
+
+                    </li>
+                    <li class="icon-item" data-target="booking">
+                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 12h24a2 2 0 0 1 2 2v20a2 2 0 0 1-2 2H34l-6 6v-6H20a2 2 0 0 1-2-2V14a2 2 0 0 1 2-2z" />
+                            <path d="M26 22c2 2 4 2 6 0" />
+                            <path d="M28 28c4 4 8 4 12 0" />
+                        </svg>
+
+                    </li>
+
+                </ul>
+
+            </header>
+
+            <!-- SLIDE MENU -->
+             <div class="slide-wrapper">
+                <div class="slide" id="slide">
+
+                    <!-- LOGO -->
+                    <div class="logo">
+                        <img src="foto/Icons/20250711_122915.png" alt="">
+                    </div>
+
+                    <!-- MENU UTAMA -->
+                    <ul class="menu">
+
+                        <li class="toggle" data-target="destinasi">Destinasi</li>
+                        <ul class="submenu" id="destinasi">
+                            <li>Indonesia</li>
+                            <li>Asia</li>
+                            <li>Eropa</li>
+                            <li>Amerika</li>
+                            <li>Australia</li>
+                        </ul>
+
+                        <li class="toggle" data-target="paket">Paket Wisata</li>
+                        <ul class="submenu" id="paket">
+                            <li>Private Tour</li>
+                            <li>Open Trip</li>
+                            <li>Honeymoon</li>
+                            <li>Keluarga</li>
+                            <li>Luxury Tour</li>
+                        </ul>
+
+                        <li class="toggle" data-target="booking">Tiket & Booking</li>
+                        <ul class="submenu" id="booking">
+                            <li>Tiket Pesawat</li>
+                            <li>Hotel</li>
+                            <li>Rental Mobil</li>
+                            <li>Asuransi</li>
+                        </ul>
+
+                        <li>Promo</li>
+                        <li>Blog</li>
+                        <li>Galeri</li>
+                        <li>Kontak</li>
+
+                    </ul>
+
+                    <div class="sidebar-footer">
+                        © 2025 Travel Tour<br>
+                        IG • TikTok • YouTube
+                    </div>
+                </div>
+             </div>
+            
+        </nav>
+
+        <div class="content">
+            <div class="navbar">
+                <button class="login-btn" id="loginBtn">
+                    <svg src="foto/account.svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+            </div> 
+            <div class="content-container">
+
+                <!--Carousel Promo-->
+                <div class="promo-container" data-carousel>
+                    <button class="btn prev">&#10094;</button>
+                    <div class="promo track">
+                        <div class="item-promo"><img src="foto/promo/promo_1764065968264_Mandiri Travel web banner 690 x 360 px.jpg" alt=""></div>
+                        <div class="item-promo"><img src="foto/promo/promo_1763519725218_2025 11 update GIT Sapporo 45juta webbanner 690x360px copy.jpg" alt=""></div>
+                        <div class="item-promo"><img src="foto/promo/promo_1750918585447_2025 06 Northern Lights website banner 690x360px copy.jpg" alt=""></div>
+                        <div class="item-promo"><img src="foto/promo/promo_1750321212149_2025 05 VIBES website banner 690x360px.jpeg" alt=""></div>
+                    </div>
+                    <button class="btn next">&#10095;</button>
+                </div>
+
+                
+                <H1>Top Product</H1>
+                <!--Carousel Top Product-->
+                <div class="product-container" data-carousel>
+                    <button class="btn prev">&#10094;</button>
+                    <div class="product track">
+                        <div class="item-product">
+                            <img src="foto/Top_Product/product_Quba mosque_480x480.jpg" alt="">
+                            <span class="label-product">Umroh</span>
+                        </div>
+                        <div class="item-product"><img src="foto/Top_Product/product_Korea-Ex_Lotte-World_480x480.jpg" alt=""></div>
+                        <div class="item-product"><img src="foto/Top_Product/product_austria-12_cesky_480x480.jpg" alt=""></div>
+                        <div class="item-product"><img src="foto/Top_Product/product_Busan_Nami-Island_480x480.jpg" alt=""></div>
+                        <div class="item-product"><img src="foto/Top_Product/product_China Chongqing Square.jpg" alt=""></div>
+                        <div class="item-product"><img src="foto/Top_Product/product_Jp-Sapporo_Snow-Mobile_480x480.jpg" alt=""></div>
+                        <div class="item-product"><img src="foto/Top_Product/product_jp-shira_gotemba_480x480.jpg" alt=""></div>
+                        <div class="item-product"><img src="foto/Top_Product/product_thailand-06_laser-buddha_480x480.jpg" alt=""></div>
+                        <div class="item-product"><img src="foto/Top_Product/product_ Peterhoff Palace 480x480.jpeg" alt=""></div>
+                    </div>
+                    <button class="btn next">&#10095;</button>
+                </div>
+
+            </div>
+            
+
+        </div>
+
+        <footer class="footer">
+            <div class="footer-inner">
+
+              <div class="footer-info">
+                
+              </div>  
+            </div>
+        </footer>
+
+    </div>
+
+
+    
+    <script type="module" src="js/main.js"></script>
+    
+</body>
+</html>

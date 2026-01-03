@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+body{
+    background: url(foto/alor.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;        /* Hilangkan scroll horizontal */
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
+    background: rgba(20, 19, 19, 0.3);          /* Tidak ada scroll pada container */
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 0;
+    align-items: flex-start;
+    padding: 10px;
+    z-index: 999;
+}
+
+.sidebar-header{
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.burger{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: rgba(20, 19, 19, 0.3);
+    margin: 10px 40px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.burger:hover{
+    transform: scale(1.2);
+}
+
+.icon-burger{
+    height: 30px;
+    color: #fff;
+}
+
+.menu-icons{
+    margin-top: 40px;
+    background: rgba(20, 19, 19, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    margin-right: 15px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.menu-icons li{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.icon-item svg{
+    width: 30px;
+    height: 30px;
+}
+
+/* SLIDE MENU */
+
+.slide-wrapper {
+    position: relative;
+    overflow: hidden;     /* kunci penting */
+    width: 220px;
+    transition: width .68s ease;
+}
+.slide-wrapper.show {
+    width: 0;
+}
+
+.slide {
+    width: 220px;
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform .7s ease, opacity 1s ease;
+}
+
+.slide.show {
+    transform: translateX(-220px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* LOGO */
+.logo{
+    position: relative;
+    height: 50px;
+    width: 140px;
+    display: flex;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 101;
+    margin-top: 10px;
+}
+
+.logo img{
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.menu{
+    list-style: none;
+    margin-top: 40px;
+    padding: 10px;
+    background: rgba(20, 19, 19, 0.3);
+    border-radius: 10px;
+    color: #eee;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+}
+
+.menu li{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    padding-left: 5px;
+    border-radius: 8px;
+}
+
+.menu li:hover{
+    color: rgb(29, 29, 29);
+}
+
+
+/* SUBMENU */
+.submenu{
+    display: none;
+    padding-left: 25px;
+}
+
+.submenu li{
+    border: none;
+    height: auto;
+    padding: 6px 2;
+    font-size: 16px;
+}
+
+.menu-icons,
+.menu {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.menu-icons::-webkit-scrollbar,
+.menu::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* FOOTER */
+/* FOOTER */
+.sidebar-footer {
+margin-top: 40px;
+font-size: 16px;
+color: #fff;
+text-align: center;
+}
+
+
+/* ================= CONTENT ================= */
+
+.content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    max-height: 100vh; /* atur tinggi area produk */
+    overflow-y: auto;                /* aktifkan scroll vertikal */
+    -webkit-overflow-scrolling: touch;
+    padding-left: 15px;
+    padding-right: 20px;
+    transition: 
+        margin-left .35s ease, 
+        padding-left .35s ease, 
+        flex-basis .35s ease;
+    }
+
+.content H1{
+    width: 200px;
+    color:#eaeaea;
+    padding: 10px;
+    
+    border-radius: 10px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - 80px);
+    padding: 10px 3%;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
+    background: rgba(20, 19, 19, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.login-btn:hover{
+    transform: scale(1.2);
+}
+
+.login-btn svg{
+    color: #fff;
+}
+
+/* Carousel Promo */
+
+.promo-container {
+    position: relative;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    margin-top: 90px; 
+    
+}
+
+.promo {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    
+}
+
+/* Hilangkan scroll bar */
+.promo::-webkit-scrollbar { display: none; }
+
+.item-promo {
+    min-width: 690px;
+    height: 360px;
+    background: #ccc;
+    border-radius: 10px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.item-promo:hover{
+    cursor: pointer;
+}
+
+/* Tombol panah */
+
+
+.promo img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+   
+}
+
+
+/* Carousel Top Product */
+
+.product-container {
+    position: relative;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    
+}
+
+.product {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    z-index: 1;
+    
+}
+
+/* Hilangkan scroll bar */
+.product::-webkit-scrollbar { display: none; }
+
+.item-product {
+    position: relative;
+    min-width: 250px;
+    height: 250px;
+    background: #ccc;
+    border-radius: 10px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.item-product:hover{
+    cursor: pointer;
+}
+
+.label-product {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    background: rgba(0,0,0,0.4);
+    padding: 8px 14px;
+    border-radius: 8px;
+    z-index: 2;
+}
+
+/* Tombol panah */
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.574);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,.3);
+    z-index: 10;
+}
+
+.product-container .btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+
+.product-container:hover .btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.btn:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+.product img{
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+
+   
+}
+
+
+/* ================= POPUP ================= */
+
+.popup{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 19, 19, 0.3);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content{
+    width: 350px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+}
+
+.close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+form input{
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.log-in{
+    width: 100%;
+    height: 35px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.8);
+    border: none;
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 800px) {
+  .slide-wrapper {
+    position: relative;
+    overflow: hidden;     /* kunci penting */
+    width: 0;
+    transition: width .68s ease;
+  }
+  .slide-wrapper.show {
+    width: 220px;
+  }
+  .slide {
+    width: 0;
+    opacity: 0;
+    transform: translateX(-40px);
+    overflow: hidden;
+    transition: transform .7s ease, opacity 1s ease;
+  }
+  .slide.show {
+    width: 220px;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
