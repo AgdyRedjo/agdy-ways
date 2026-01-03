@@ -221,7 +221,6 @@ text-align: center;
     width: 200px;
     color:#eaeaea;
     padding: 10px;
-    
     border-radius: 10px;
 }
 
@@ -414,6 +413,43 @@ text-align: center;
     display: block;
 
    
+}
+
+/* ================= FOOTER ================*/
+
+.footer-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    color: #ccc;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-info a{
+    text-decoration: none;
+    color: #ccc;
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-social a {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    color: #fff;
+}
+
+.footer-social svg {
+    height: 25px;
+    display: block;
+    fill: #ccc;
 }
 
 
