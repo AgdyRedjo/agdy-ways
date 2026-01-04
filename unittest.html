@@ -1,413 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Roboto", sans-serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agdy's Ways - Mobile</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, sans-serif;
+        }
 
-body{
-    background: url(foto/alor.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-           /* Hilangkan scroll horizontal */
-}
+        body {
+        background: url(foto/alor.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #fff;
+        }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
- 
-    background: rgba(20, 19, 19, 0.3);          /* Tidak ada scroll pada container */
-}
+        /* HEADER */
+        .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 16px;
+        }
 
-.sidebar{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between ;
-    position: relative;
-    top: 0;
-    align-items: center;
-    padding: 10px;
-    
-}
+        .logo img {
+        height: 42px;
+        }
 
-/* LOGO */
-.logo{
-    position: relative;
-    height: 50px;
-    width: 140px;
-    display: flex;
-    border-radius: 15px;
-    cursor: pointer;
-    z-index: 101;
-    margin-top: 10px;
-}
+        .login-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255,255,255,0.15);
+        color: #fff;
+        }
 
-.logo img{
-    width: 100%;
-    object-fit: cover;
-    
-}
+        /* PROMO */
+        .promo-section {
+        padding: 10px 0;
+        }
 
-.login-btn{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-top: 10px;
-    background: rgba(20, 19, 19, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    cursor: pointer;
-    transition: .3s ease;
-}
+        .promo {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        }
 
-.login-btn:hover{
-    transform: scale(1.2);
-}
+        .promo img {
+        min-width: 90%;
+        border-radius: 12px;
+        scroll-snap-align: center;
+        }
 
-.login-btn svg{
-    color: #fff;
-}
+        /* ICON MENU */
+        .icon-menu {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        padding: 16px;
+        }
 
-.popup{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(20, 19, 19, 0.3);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
+        .icon-item {
+        background: rgba(20, 19, 19, 0.3);
+        border-radius: 14px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        }
 
-.popup-content{
-    width: 350px;
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    padding: 30px;
-    position: relative;
-}
+        /* PRODUCT */
+        .product-section {
+        padding: 16px;
+        }
 
-.close{
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
-}
+        .product-section h2 {
+        margin-bottom: 10px;
+        }
 
-form input{
-    width: 100%;
-    padding: 8px;
-    margin: 8px 0 12px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
+        .product {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        }
 
-.log-in{
-    width: 100%;
-    height: 35px;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.8);
-    border: none;
-    cursor: pointer;
-}
+        .item-product {
+        min-width: 140px;
+        background: rgba(255,255,255,0.12);
+        border-radius: 14px;
+        padding: 10px;
+        text-align: center;
+        }
 
-.promo-container {
-    position: relative;
-    height: auto;
-    width: 100%;
-    overflow: hidden;
-    padding: 20px 0;
-    margin-top: 90px; 
-    
-}
+        .item-product img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 6px;
+        }
 
-.promo {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
-    
-}
+        /* FOOTER */
+        .mobile-footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        opacity: 0.6;
+        }
 
-.product-container .btn {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .3s ease;
-}
-
-.product-container:hover .btn {
-  opacity: 1;
-  pointer-events: auto;
-}
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.btn:hover {
-    transform: translateY(-50%) scale(1.1);
-}
-
-/* Hilangkan scroll bar */
-.promo::-webkit-scrollbar { display: none; }
-
-.item-promo {
-    min-width: 690px;
-    height: 360px;
-    background: #ccc;
-    border-radius: 10px;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-}
-
-.item-promo:hover{
-    cursor: pointer;
-}
-
-/* Tombol panah */
-
-
-.promo img{
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-    display: block;
-   
-}
-
-    </style>
-    <link rel="icon" href="foto/Icons/20240830_131824.png">
-    <title>Agdy's Ways | Find Out Your Better Experiences!</title>
+  </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <!--LOGIN FORM-->
-        <div class="popup" id="popup">
-            <div class="popup-content">
-                <span class="close" id="closeBtn">&times;</span>
-                <h2>Log In</h2>
-                <form action="">
-                    <label for="email">Email</label>
-                    <input type="email" placeholder="yourmail@example.com" required>
-                    <label for="password">Password</label>
-                    <input type="password" placeholder="Your Password" required>
-                    <button type="submit" class="log-in">Log In</button>
-                </form>
-                <p><a href="">Forgot Your Password?</a></p>
-            </div>
-        </div>
+<!-- HEADER -->
+<header class="mobile-header">
+  <div class="logo">
+    <img src="foto/Icons/20250711_122915.png" alt="Agdy's Ways">
+  </div>
 
+  <button class="login-btn">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+      <circle cx="12" cy="7" r="4"/>
+    </svg>
+  </button>
+</header>
 
-        <nav class="sidebar">
-            <header class="sidebar-header">
-                <!-- LOGO -->
-                    <div class="logo">
-                        <img src="foto/Icons/20250711_122915.png" alt="">
-                    </div>
-            
-
-            </header>
-
-            
-            <button class="login-btn" id="loginBtn">
-                <svg src="foto/account.svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-            </button>
-            
-             
-            
-        </nav>
-
-        <div class="content">
-            <div class="content-container">
-
-                <!--Carousel Promo-->
-                <div class="promo-container" data-carousel>
-                    <button class="btn prev">&#10094;</button>
-                    <div class="promo track">
-                        <div class="item-promo"><img src="foto/Promo/promo_1764065968264_Mandiri Travel web banner 690 x 360 px.jpg" alt=""></div>
-                        <div class="item-promo"><img src="foto/Promo/promo_1763519725218_2025 11 update GIT Sapporo 45juta webbanner 690x360px copy.jpg" alt=""></div>
-                        <div class="item-promo"><img src="foto/Promo/promo_1750918585447_2025 06 Northern Lights website banner 690x360px copy.jpg" alt=""></div>
-                        <div class="item-promo"><img src="foto/Promo/promo_1750321212149_2025 05 VIBES website banner 690x360px.jpeg" alt=""></div>
-                    </div>
-                    <button class="btn next">&#10095;</button>
-                </div>
-                
-                <!-- HEADER SIDEBAR -->
-            
-                <!-- IKON QUICK ACCESS -->
-
-                <ul class="menu-icons">
-
-                    <li class="icon-item" data-target="destinasi">
-                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M32 6c-7.18 0-13 5.82-13 13 0 9.75 10.5 18.96 12.1 20.43a1.5 1.5 0 0 0 2.8 0C34.5 37.96 45 28.75 45 19c0-7.18-5.82-13-13-13z"/>
-                            <circle cx="32" cy="19" r="6" />
-                            <path d="M42 14l6-4-2 6-8 4-6 6" />
-                        </svg>
-                    </li>
-                    <li class="icon-item" data-target="paket">
-                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="12" y="20" width="40" height="28" rx="4" />
-                            <rect x="24" y="12" width="16" height="10" rx="2" />
-                            <line x1="20" y1="30" x2="44" y2="30" />
-                            <line x1="20" y1="36" x2="44" y2="36" />
-                        </svg>
-
-                    </li>
-                    <li class="icon-item" data-target="booking">
-                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="8" y="12" width="48" height="44" rx="6" />
-                            <line x1="8" y1="24" x2="56" y2="24" />
-                            <line x1="20" y1="8" x2="20" y2="18" />
-                            <line x1="44" y1="8" x2="44" y2="18" />
-                            <path d="M22 38l8 8 16-20" />
-                        </svg>
-                    </li>
-                    <li class="icon-item" data-target="booking">
-                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 32l18-18 30 8-18 18L5 32z" />
-                            <circle cx="16" cy="16" r="3" />
-                            <path d="M38 26l8 8" />
-                            <circle cx="46" cy="34" r="1.5" />
-                            <circle cx="42" cy="30" r="1.5" />
-                        </svg>
-
-                    </li>
-                    <li class="icon-item" data-target="booking">
-                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="10" y="8" width="34" height="48" rx="3" />
-                            <line x1="10" y1="20" x2="44" y2="20" />
-                            <line x1="10" y1="28" x2="44" y2="28" />
-                            <path d="M48 40l6 6" />
-                            <path d="M50 34l4-4 4 4-4 4" />
-                        </svg>
-
-                    </li>
-                    <li class="icon-item" data-target="booking">
-                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="6" y="10" width="52" height="40" rx="4" />
-                            <circle cx="16" cy="20" r="3" />
-                            <path d="M10 46l14-18 10 12 12-10 0 16" />
-                            <polyline points="20,34 28,26 38,36 50,26" fill="none" />
-                        </svg>
-
-                    </li>
-                    <li class="icon-item" data-target="booking">
-                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 12h24a2 2 0 0 1 2 2v20a2 2 0 0 1-2 2H34l-6 6v-6H20a2 2 0 0 1-2-2V14a2 2 0 0 1 2-2z" />
-                            <path d="M26 22c2 2 4 2 6 0" />
-                            <path d="M28 28c4 4 8 4 12 0" />
-                        </svg>
-
-                    </li>
-
-                </ul>
-                
-                <H1>Top Product</H1>
-                <!--Carousel Top Product-->
-                <div class="product-container" data-carousel>
-                    <button class="btn prev">&#10094;</button>
-                    <div class="product track">
-                        <div class="item-product">
-                            <img src="foto/Top_Product/product_Quba mosque_480x480.jpg" alt="">
-                            <span class="label-product">Umroh</span>
-                        </div>
-                        <div class="item-product"><img src="foto/Top_Product/product_Korea-Ex_Lotte-World_480x480.jpg" alt=""></div>
-                        <div class="item-product"><img src="foto/Top_Product/product_austria-12_cesky_480x480.jpg" alt=""></div>
-                        <div class="item-product"><img src="foto/Top_Product/product_Busan_Nami-Island_480x480.jpg" alt=""></div>
-                        <div class="item-product"><img src="foto/Top_Product/product_China Chongqing Square.jpg" alt=""></div>
-                        <div class="item-product"><img src="foto/Top_Product/product_Jp-Sapporo_Snow-Mobile_480x480.jpg" alt=""></div>
-                        <div class="item-product"><img src="foto/Top_Product/product_jp-shira_gotemba_480x480.jpg" alt=""></div>
-                        <div class="item-product"><img src="foto/Top_Product/product_thailand-06_laser-buddha_480x480.jpg" alt=""></div>
-                        <div class="item-product"><img src="foto/Top_Product/product_ Peterhoff Palace 480x480.jpeg" alt=""></div>
-                    </div>
-                    <button class="btn next">&#10095;</button>
-                </div>
-
-            </div>
-            
-            <footer class="footer">
-                <div class="footer-inner">
-
-                    <div class="footer-info">
-                        <h4>Information</h4>
-                        <a href="">About Us</a>
-                        <a href="">Terms</a>
-                        <a href="">Privacy</a>
-                        <a href="">Branches</a>
-                    </div>
-                    
-                    <div class="address">
-                        <h4>Address</h4>
-                        <a>PT. WNL Andalan Transport</a>
-                        <a>Jl. Solo-Sragen</a>
-                        <a>Jetak Pabrik, Jetak, Sidoharjo</a>
-                        <a>Sragen 57281</a>
-                    </div>
-
-                    <div class="footer-social">
-                        <h4>Socials</h4>
-                        <a href="">
-                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1024 1024"><path d="M511 4c138 0 155 1 209 3 53 2 90 11 123 24 34 13 62 30 90 58s45 56 58 90c13 33 22 70 24 123 2 54 3 71 3 209s-1 155-3 209c-2 53-11 90-24 123-13 34-30 62-58 90s-56 45-90 58c-33 13-70 22-123 24-54 2-71 3-209 3s-155-1-209-3c-53-2-90-11-123-24-34-13-62-30-90-58s-45-56-58-90C18 810 9 773 7 720c-2-54-3-71-3-209s1-155 3-209c2-53 11-90 24-123 13-34 30-62 58-90s56-45 90-58c33-13 70-22 123-24 54-2 71-3 209-3zm0 66c-144 0-161 1-217 3-52 2-81 12-100 19-49 20-82 53-102 102-7 19-17 48-19 100-2 56-3 73-3 217s1 161 3 217c2 52 12 81 19 100 20 49 53 82 102 102 19 7 48 17 100 19 56 2 73 3 217 3s161-1 217-3c52-2 81-12 100-19 49-20 82-53 102-102 7-19 17-48 19-100 2-56 3-73 3-217s-1-161-3-217c-2-52-12-81-19-100-20-49-53-82-102-102-19-7-48-17-100-19-56-2-73-3-217-3zm0 644c112 0 203-91 203-203s-91-203-203-203-203 91-203 203 91 203 203 203zm0-463c144 0 260 116 260 260S655 771 511 771 251 655 251 511s116-260 260-260zm332-10c0 34-28 60-62 60s-60-26-60-60 26-62 60-62 62 28 62 62z"/>
-                            <path xmlns="http://www.w3.org/2000/svg" d="M511 4c138 0 155 1 209 3 53 2 90 11 123 24 34 13 62 30 90 58s45 56 58 90c13 33 22 70 24 123 2 54 3 71 3 209s-1 155-3 209c-2 53-11 90-24 123-13 34-30 62-58 90s-56 45-90 58c-33 13-70 22-123 24-54 2-71 3-209 3s-155-1-209-3c-53-2-90-11-123-24-34-13-62-30-90-58s-45-56-58-90C18 810 9 773 7 720c-2-54-3-71-3-209s1-155 3-209c2-53 11-90 24-123 13-34 30-62 58-90s56-45 90-58c33-13 70-22 123-24 54-2 71-3 209-3zm0 66c-144 0-161 1-217 3-52 2-81 12-100 19-49 20-82 53-102 102-7 19-17 48-19 100-2 56-3 73-3 217s1 161 3 217c2 52 12 81 19 100 20 49 53 82 102 102 19 7 48 17 100 19 56 2 73 3 217 3s161-1 217-3c52-2 81-12 100-19 49-20 82-53 102-102 7-19 17-48 19-100 2-56 3-73 3-217s-1-161-3-217c-2-52-12-81-19-100-20-49-53-82-102-102-19-7-48-17-100-19-56-2-73-3-217-3zm0 644c112 0 203-91 203-203s-91-203-203-203-203 91-203 203 91 203 203 203zm0-463c144 0 260 116 260 260S655 771 511 771 251 655 251 511s116-260 260-260zm332-10c0 34-28 60-62 60s-60-26-60-60 26-62 60-62 62 28 62 62z"/></svg>
-                        </a>
-                        <a href="">
-                            <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 32 32" version="1.1">
-                                <path d="M29.398 5.928c-0.867-0.624-3.283-1.453-13.406-1.453-10.848 0-12.458 0.952-12.975 1.264-2.749 1.652-3.010 8.963-3.034 10.445 0.033 1.958 0.349 8.473 3.032 10.084 0.515 0.311 2.116 1.257 12.976 1.257 10.13 0 12.543-0.825 13.406-1.447 2.343-1.686 2.612-7.49 2.619-9.92-0.006-1.954-0.211-8.496-2.619-10.23zM28.23 24.456c-0.349 0.251-2.35 1.069-12.239 1.069-9.56 0-11.566-0.742-11.945-0.971-0.965-0.579-1.984-3.652-2.063-8.376 0.079-4.713 1.111-8.153 2.066-8.726 0.38-0.229 2.393-0.977 11.943-0.977 9.881 0 11.887 0.824 12.239 1.076 0.857 0.617 1.773 3.865 1.787 8.613-0.014 4.823-0.936 7.678-1.787 8.291zM22.513 15.213l-8.998-5.522c-0.309-0.187-0.695-0.191-1.008-0.014-0.315 0.178-0.509 0.511-0.509 0.871v11.045c0 0.36 0.194 0.694 0.509 0.871 0.152 0.086 0.322 0.129 0.491 0.129 0.178 0 0.358-0.048 0.516-0.143l8.998-5.524c0.3-0.181 0.483-0.506 0.483-0.856s-0.183-0.676-0.483-0.857zM13.999 19.822v-7.503l6.063 3.751z"/>
-                            </svg>
-                        </a>
-                        <a href="">
-                           <svg viewBox="0 0 251 256" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-                                <g>
-                                <path d="M149.078767,108.398529 L242.331303,0 L220.233437,0 L139.262272,94.1209195 L74.5908396,0 L0,0 L97.7958952,142.3275 L0,256 L22.0991185,256 L107.606755,156.605109 L175.904525,256 L250.495364,256 L149.07334,108.398529 L149.078767,108.398529 Z M118.810995,143.581438 L108.902233,129.408828 L30.0617399,16.6358981 L64.0046968,16.6358981 L127.629893,107.647252 L137.538655,121.819862 L220.243874,240.120681 L186.300917,240.120681 L118.810995,143.586865 L118.810995,143.581438 Z"/>
-                                </g>
-                        </svg>
-                        </a>
-                        <a href="">
-                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
-                                <path d="M5,3H19a2,2,0,0,1,2,2V19a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V5A2,2,0,0,1,5,3M18,5H15.5A3.5,3.5,0,0,0,12,8.5V11H10v3h2v7h3V14h3V11H15V9a1,1,0,0,1,1-1h2Z"/>
-                            </svg>
-                        </a>
-                    </div>
-
-                </div>
-            </footer>
-
-        </div>
-        
-
+<!-- PROMO -->
+<section class="promo-section">
+    <div class="promo track">
+        <div class="item-promo"><img src="foto/Promo/promo_1764065968264_Mandiri Travel web banner 690 x 360 px.jpg" alt=""></div>
+        <div class="item-promo"><img src="foto/Promo/promo_1763519725218_2025 11 update GIT Sapporo 45juta webbanner 690x360px copy.jpg" alt=""></div>
+        <div class="item-promo"><img src="foto/Promo/promo_1750918585447_2025 06 Northern Lights website banner 690x360px copy.jpg" alt=""></div>
+        <div class="item-promo"><img src="foto/Promo/promo_1750321212149_2025 05 VIBES website banner 690x360px.jpeg" alt=""></div>
     </div>
+</section>
 
+<!-- ICON MENU -->
+<section class="icon-menu">
+  <div class="icon-item">🏝️</div>
+  <div class="icon-item">🎒</div>
+  <div class="icon-item">✈️</div>
+  <div class="icon-item">🛎️</div>
+  <div class="icon-item">📸</div>
+  <div class="icon-item">💬</div>
+  <div class="icon-item">🗺️</div>
+  <div class="icon-item">⭐</div>
+</section>
 
-    
-    <script type="module" src="js/main.js"></script>
-    
+<!-- PRODUCT -->
+<section class="product-section">
+  <h2>Top Product</h2>
+    <div class="product track">
+        <div class="item-product">
+            <img src="foto/Top_Product/product_Quba mosque_480x480.jpg" alt="">
+            <span class="label-product">Umroh</span>
+        </div>
+        <div class="item-product"><img src="foto/Top_Product/product_Korea-Ex_Lotte-World_480x480.jpg" alt=""></div>
+        <div class="item-product"><img src="foto/Top_Product/product_austria-12_cesky_480x480.jpg" alt=""></div>
+        <div class="item-product"><img src="foto/Top_Product/product_Busan_Nami-Island_480x480.jpg" alt=""></div>
+        <div class="item-product"><img src="foto/Top_Product/product_China Chongqing Square.jpg" alt=""></div>
+        <div class="item-product"><img src="foto/Top_Product/product_Jp-Sapporo_Snow-Mobile_480x480.jpg" alt=""></div>
+        <div class="item-product"><img src="foto/Top_Product/product_jp-shira_gotemba_480x480.jpg" alt=""></div>
+        <div class="item-product"><img src="foto/Top_Product/product_thailand-06_laser-buddha_480x480.jpg" alt=""></div>
+        <div class="item-product"><img src="foto/Top_Product/product_ Peterhoff Palace 480x480.jpeg" alt=""></div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mobile-footer">
+  <p>© 2025 Agdy's Ways</p>
+</footer>
+
 </body>
 </html>
-
