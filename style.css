@@ -505,25 +505,38 @@ form input{
 
 
 @media (max-width: 800px) {
-  .slide-wrapper {
-    position: relative;
-    overflow: hidden;     /* kunci penting */
-    width: 0;
-    transition: width .68s ease;
-  }
-  .slide-wrapper.show {
-    width: 220px;
-  }
-  .slide {
-    width: 0;
-    opacity: 0;
-    transform: translateX(-40px);
-    overflow: hidden;
-    transition: transform .7s ease, opacity 1s ease;
-  }
-  .slide.show {
-    width: 220px;
-    opacity: 1;
-    transform: translateX(0);
-  }
+    .product:hover,
+    .card:hover,
+    .item:hover {
+        transform: none !important;
+    }
+    .slide-wrapper {
+        position: relative;
+        overflow: hidden;     /* kunci penting */
+        width: 0;
+        transition: width .68s ease;
+    }
+    .slide-wrapper.show {
+        width: 220px;
+    }
+    .slide {
+        width: 0;
+        opacity: 0;
+        transform: translateX(-40px);
+        overflow: hidden;
+        transition: transform .7s ease, opacity 1s ease;
+    }
+    .slide.show {
+        width: 220px;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .product {
+    flex: 0 0 80%;
+    max-width: 80%;
+    }
+
+    
+
 }
