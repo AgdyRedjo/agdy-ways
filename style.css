@@ -532,11 +532,11 @@ form input{
         transform: translateX(0);
     }
 
-    .product {
-    flex: 0 0 80%;
-    max-width: 80%;
+    .track {
+    flex: 0 0 50%;
+    max-width: 50%;
     }
 
-    
+
 
 }
