@@ -422,6 +422,7 @@ text-align: center;
     flex-direction: row;
     gap: 200px;
     color: #ccc;
+    padding-bottom: 20px;
 }
 
 .footer-info {
@@ -452,6 +453,9 @@ text-align: center;
     fill: #ccc;
 }
 
+.mobile-layout {
+    display: none;
+}
 
 /* ================= POPUP ================= */
 
@@ -538,26 +542,23 @@ form input{
 }
 
 @media (max-width: 768px){
-    .product {
-        flex: 0 0 85%;
-        max-width: 85%;
-    }
-
-    .item-product {
-        width: 50%;
-    }
-
-    .product img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    .btn {
+    
+    nav, .sidebar, .burger, .menu {
         display: none;
     }
+   /* TAMPILKAN STRUKTUR MOBILE */
+  .mobile-layout {
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px;
+  }
 
-    *:hover {
-        transform: none !important;
-    }
+  .mobile-logo,
+  .mobile-promo,
+  .mobile-icons {
+    display: block;
+  }
+
+
 }
